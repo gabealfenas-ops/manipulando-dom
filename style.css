@@ -95,11 +95,13 @@ button {
   border: 0.125rem solid var(--color-neutral-300);
 
   height: 4rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 
   position: relative;
   z-index: 9999;
 
+  max-width: 40rem;
+  margin: auto;
 }
 
 .header a {
@@ -146,38 +148,56 @@ button {
   font-size: 1.25rem;
 }
 
-/* estilos todo-list */
-/* remover ao finalizar estilos */
+/* estilos todo-list, pokemon */
 
-.todo-card {
+.todo-card,
+.pokemon-card {
   background: var(--backdrop-color);
   backdrop-filter: blur(10px);
   color: var(--color-neutral-200);
 
   max-width: 40rem;
   padding: 1rem;
+  margin: auto;
 
   border-radius: 2rem;
 }
 
-.todo-card header {
+.todo-card header,
+.pokemon-card header {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.todo-form {
+.todo-card header h2,
+.pokemon-card header h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  /* clamp(valor minimo, valor preferido, valor máximo) */
+}
+
+.todo-card header p,
+.pokemon-card header p {
+  font-size: clamp(1rem, 5vw, 1.25rem);
+}
+
+.todo-form,
+.pokemon-form {
   display: flex;
   gap: 1rem;
 }
 
-.todo-form input {
+.todo-form input,
+.pokemon-form input {
   border: 2px solid transparent;
   border-radius: 1rem;
   padding: 1rem;
   outline: none;
+  flex: 2;
+  font-size: 1rem;
 }
 
-.todo-form button {
+.todo-form button,
+.pokemon-form button {
   border-radius: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -185,23 +205,30 @@ button {
   outline: none;
   font-weight: 600;
   background-color: var(--color-neutral-200);
+  flex: 1;
 }
 
-.todo-form button:hover {
+.todo-form button:hover,
+.pokemon-form button:hover {
   background-color: var(--color-black);
   color: var(--color-neutral-200);
 }
 
 .todo-form input:focus,
-.todo-form button:focus {
+.todo-form button:focus,
+.pokemon-form input:focus,
+.pokemon-form button:focus {
   border-color: #4f46e5;
 }
 
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
   margin-top: 1rem;
+
+  max-height: 20rem;
+  overflow-y: scroll;
 }
 
 .todo-item {
@@ -262,5 +289,4 @@ button {
   .header nav ul {
     flex-direction: row;
   }
-
 }
